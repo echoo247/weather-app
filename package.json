@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "yarn workspace server start & yarn workspace client dev"
+    "dev": "yarn workspace server start:debug & yarn workspace client dev"
   },
   "workspaces": [
     "client",
