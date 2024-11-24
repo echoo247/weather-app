@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Weather } from '../schemas/weather.schema';
@@ -22,22 +22,28 @@ export class WeatherService {
         .toPromise();
 
       const weatherData = resWeather.data;
-      console.log(weatherData);
       const weatherToSave = new this.weatherModel({
-        coord: weatherData.coord,
         weather: weatherData.weather,
         id: weatherData.id,
         name: weatherData.name,
-        cod: weatherData.cod,
         country: weatherData.sys.country,
         temp: weatherData.main.temp,
       });
 
       await weatherToSave.save();
-      console.log(weatherToSave);
       return weatherToSave;
     } catch (err) {
-      console.log(err.response?.data);
+      if (err.response && err.response.data && err.response.data.message) {
+        throw new HttpException(
+          err.response.data.message && 'city not found',
+          HttpStatus.NOT_FOUND,
+        );
+      } else {
+        throw new HttpException(
+          'Something went wrong',
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        );
+      }
     }
   }
 

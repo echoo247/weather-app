@@ -1,0 +1,19 @@
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto 50px;
+    gap: 16px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .main {
+        margin: auto 20px;
+    }
+}

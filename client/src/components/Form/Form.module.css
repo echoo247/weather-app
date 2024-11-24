@@ -1,0 +1,110 @@
+.wrapperForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.wrapperForm label {
+    margin-bottom: 12px;
+    font: 400 14px/1.2 "Inter", sans-serif;
+    color: #56626F;
+}
+
+.wrapperForm input {
+    padding: 12px 15px;
+    border: 1px solid #CED6DD;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font: 400 14px/1.2 "Inter", sans-serif;
+    color: #1C242B;
+}
+
+.wrapperForm button {
+    border-radius: 8px;
+    padding: 16px 32px;
+    background-size: 200% auto;
+    color: #FFFFFF;
+    border: none;
+    font: 700 16px/1.2 "Inter", sans-serif;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+    background-image: linear-gradient(to right, #2F5AF4 0%, #2dbefd 50%, #0FA2AB 100%);
+    transition: 0.5s;
+    margin-bottom: 50px;
+    margin-top: 15px;
+
+    &:hover {
+        background-position: right center;
+    }
+}
+
+
+.wrapperForm a {
+    font: 400 14px "Inter", solid;
+    color: #8E9AA7;
+    text-align: center;
+    text-decoration-line: underline;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.error {
+    color: red;
+    font: 400 14px "Inter", solid;
+    text-transform: capitalize;
+    position: absolute;
+    bottom: -10px;
+}
+
+@media (max-width: 1024px) {
+    .wrapperForm button {
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapperForm {
+        max-width: 100%;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapperForm {
+        height: 100%;
+        gap: 10px;
+    }
+
+    .wrapperForm input {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .wrapperForm button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .wrapperForm label {
+        font-size: 12px;
+    }
+
+}
+
+@media (max-height: 500px) {
+    .img {
+        display: none;
+    }
+
+    .wrapperForm button {
+        margin-bottom: 15px;
+    }
+}
+
