@@ -39,6 +39,7 @@ export class WeatherService {
           HttpStatus.NOT_FOUND,
         );
       } else {
+        console.log(err);
         throw new HttpException(
           'Something went wrong',
           HttpStatus.INTERNAL_SERVER_ERROR,
